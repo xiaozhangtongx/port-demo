@@ -6,7 +6,6 @@
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import BasicLayout from '@/layout/BasicLayout'
 
 Vue.use(VueRouter)
@@ -17,20 +16,46 @@ const routes = [
     name: 'Main',
     component: BasicLayout,
     redirect: '/home',
-    //component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     children: [
+      {
+        path: '',
+        redirect: '/home',
+      },
       {
         path: '/home',
         name: 'Home',
-        component: Home,
+        component: () => import('../views/Home.vue'),
+      },
+      {
+        path: '/map',
+        name: 'Map',
+        component: () => import('../views/Map.vue'),
+      },
+      {
+        path: '/ship',
+        name: 'Ship',
+        component: () => import('../views/Ship.vue'),
+      },
+      {
+        path: '/tuolun',
+        name: 'Tuolun',
+        component: () => import('../views/Tuolun.vue'),
+      },
+      {
+        path: '/maodi',
+        name: 'Maodi',
+        component: () => import('../views/Maodi.vue'),
+      },
+      {
+        path: '/data',
+        name: 'Data',
+        component: () => import('../views/Data.vue'),
       },
     ],
   },
 ]
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
   routes,
 })
 

@@ -9,8 +9,10 @@
     <header class="header">
       <div class="header-left">
         <ul>
-          <li v-for="item in nav_left" :key="item.title" :class="item.liclass">
-            <i :class="item.class"></i><a :href="item.router">{{item.title}}</a>
+          <li v-for="item in nav_left" :key="item.id" :class="isActive === item.id?'nav_active':''"
+            @click="click(item)">
+            <i :class="item.class"></i>
+            <router-link :to="item.router">{{item.title}}</router-link>
           </li>
         </ul>
       </div>
@@ -19,8 +21,10 @@
       </div>
       <div class="header-right">
         <ul>
-          <li v-for="item in nav_right" :key="item.title">
-            <i :class="item.class"></i><a :href="item.router">{{item.title}}</a>
+          <li v-for="item in nav_right" :key="item.id" :class="isActive === item.id?'nav_active':''"
+            @click="click(item)">
+            <i :class="item.class"></i>
+            <router-link :to="item.router">{{item.title}}</router-link>
           </li>
         </ul>
       </div>
@@ -33,36 +37,42 @@ export default {
   name: '',
   data() {
     return {
+      isActive: 1,
       nav_left: [
         {
+          id: 1,
           title: '数据概要',
           router: '/home',
           class: 'nav_1 ',
-          liclass: 'nav_active',
         },
         {
+          id: 2,
           title: '地图界面',
           router: '/map',
           class: 'nav_3',
         },
         {
-          title: '航道监控',
+          id: 3,
+          title: '航道监测',
           router: '/ship',
           class: 'nav_2',
         },
       ],
       nav_right: [
         {
+          id: 4,
           title: '拖轮调度',
           router: '/tuolun',
           class: 'nav_4 ',
         },
         {
-          title: '锚地检测',
+          id: 5,
+          title: '锚地监测',
           router: '/maodi',
           class: 'nav_5',
         },
         {
+          id: 6,
           title: '查询统计',
           router: '/data',
           class: 'nav_6',
@@ -70,7 +80,12 @@ export default {
       ],
     }
   },
-  methods: {},
+  methods: {
+    click(item) {
+      this.isActive = item.id
+      this.$router.push(item.router)
+    },
+  },
 }
 </script>
 

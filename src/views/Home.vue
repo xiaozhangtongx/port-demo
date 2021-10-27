@@ -79,7 +79,9 @@
           <div class="div_any_title any_title_width">
             <img src="../assets/img/title_3.png" />车辆行驶地图
           </div>
-          <div id="map_div"></div>
+          <div id="map_div">
+            <Map />
+          </div>
         </div>
       </div>
       <div class="right div_any01">
@@ -101,6 +103,7 @@
 </template>
 
 <script>
+import Map from '@/views/Map'
 export default {
   name: 'Home',
   data() {
@@ -108,7 +111,9 @@ export default {
       port_data: [{}],
     }
   },
-  components: {},
+  components: {
+    Map,
+  },
 }
 </script>
 
