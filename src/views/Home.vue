@@ -77,10 +77,10 @@
       <div class="div_any02 left">
         <div class="div_any_child div_height">
           <div class="div_any_title any_title_width">
-            <img src="../assets/img/title_3.png" />车辆行驶地图
+            <img src="../assets/img/title_3.png" />港口地图
           </div>
           <div id="map_div">
-            <Map />
+            <Map class="map" />
           </div>
         </div>
       </div>
@@ -227,8 +227,15 @@ export default {
   margin-top: 15px;
 }
 #map_div {
-  width: 96%;
-  height: 30vh;
+  // width: 96%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .map {
+    width: 98%;
+    height: 98%;
+  }
   // margin: 4% auto;
 }
 .div_height {
@@ -247,6 +254,7 @@ export default {
   left: 20%;
   line-height: 35px;
   text-align: center;
+  z-index: 1000;
 }
 .div_any_title img {
   width: 18px;

@@ -5,20 +5,49 @@
  * @Date: 2021-10-27 15:57:28
 -->
 <template>
-  <div>
-    <h2>地图页面</h2>
+  <div id="map" ref="rootmap">
   </div>
 </template>
-
+ 
 <script>
+import 'ol/ol.css'
+import { Map, View } from 'ol'
+import mapconfig from '../config/mapconfig'
 export default {
-  name: '',
   data() {
-    return {}
+    return {
+      map: null,
+    }
   },
-  methods: {},
+  mounted() {
+    var mapcontainer = this.$refs.rootmap
+    mapconfig.maptype = 2
+    this.map = new Map({
+      target: mapcontainer,
+      layers: mapconfig.streetmap(),
+      view: new View({
+        projection: 'EPSG:4326', //使用这个坐标系
+        center: [mapconfig.x, mapconfig.y], //深圳
+        zoom: mapconfig.zoom,
+      }),
+      controls: mapconfig.controls,
+    })
+  },
 }
 </script>
+ 
+<style>
+#map {
+  height: 100%;
+  position: relative;
+}
 
-<style scoped lang='less'>
+.mosuePosition {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: blue;
+  font-size: 12px;
+  font-family: '微软雅黑';
+}
 </style>
