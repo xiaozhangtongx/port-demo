@@ -14,7 +14,7 @@ import {
   FullScreen,
   ScaleLine,
   MousePosition,
-  OverviewMap,
+  // OverviewMap,
 } from 'ol/control'
 import { createStringXY } from 'ol/coordinate'
 
@@ -40,6 +40,14 @@ var streetmap = function() {
         source: new TileArcGISRest({
           url:
             'https://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer',
+        }),
+      })
+      break
+    case 3:
+      maplayer = new TileLayer({
+        source: new XYZ({
+          url:
+            'http://webrd01.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scale=1&style=8',
         }),
       })
       break

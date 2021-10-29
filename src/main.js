@@ -11,8 +11,9 @@ import store from './store'
 import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 import './assets/css/global.css'
+import scroll from 'vue-seamless-scroll'
 Vue.use(Antd)
-
+Vue.use(scroll)
 Vue.config.productionTip = false
 
 new Vue({
