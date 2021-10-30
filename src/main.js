@@ -12,9 +12,11 @@ import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 import './assets/css/global.css'
 import scroll from 'vue-seamless-scroll'
+import * as echarts from 'echarts'
 Vue.use(Antd)
 Vue.use(scroll)
 Vue.config.productionTip = false
+Vue.prototype.$echarts = echarts
 
 new Vue({
   router,

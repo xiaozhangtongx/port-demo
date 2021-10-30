@@ -17,7 +17,9 @@
             <img src="../assets/img/title_1.png" />
             <router-link to="/data">船舶类型统计</router-link>
           </div>
-          <p id="char1" class="p_chart"></p>
+          <p id="char1" class="p_chart">
+            <ShipKinds />
+          </p>
         </div>
 
         <div class="div_any_child">
@@ -25,7 +27,9 @@
             <img src="../assets/img/title_2.png" />
             <router-link to="/tuolun">拖轮状态统计</router-link>
           </div>
-          <p id="char2" class="p_chart"></p>
+          <p id="char2" class="p_chart">
+            <ShipState />
+          </p>
         </div>
       </div>
 
@@ -47,7 +51,9 @@
             <img src="../assets/img/title_4.png" />
             <router-link to="/data">船舶航行统计</router-link>
           </div>
-
+          <p id="char3" class="p_chart">
+            <ShipDis />
+          </p>
         </div>
         <div class="div_any_child">
           <Scroll class="scroll" />
@@ -66,6 +72,9 @@ import ConText from '@/components/home/ConText'
 import vueSeamlessScroll from 'vue-seamless-scroll'
 import Scroll from '@/components/home/Scroll'
 import Map from '@/views/Map'
+import ShipKinds from '@/components/echarts/ShipKinds'
+import ShipState from '@/components/echarts/ShipState'
+import ShipDis from '@/components/echarts/ShipDis'
 export default {
   name: 'Home',
   components: {
@@ -73,6 +82,9 @@ export default {
     vueSeamlessScroll,
     Scroll,
     ConText,
+    ShipKinds,
+    ShipState,
+    ShipDis,
   },
 }
 </script>
